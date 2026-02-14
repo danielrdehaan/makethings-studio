@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make Things Studio</title>
+  <meta name="description" content="A small studio, building away.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --fg: #1a1817;
+      --dim: #7d756d;
+      --blue: #4a7cec;
+      --blue-soft: #eef3ff;
+      --border: #e8e3dd;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+      --display: 'Fraunces', Georgia, serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    ::selection {
+      background: var(--blue);
+      color: white;
+    }
+    .page {
+      max-width: 540px;
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--fg);
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    h1 {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.2rem;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--blue);
+    }
+    .rotating-word {
+      display: inline-block;
+      position: relative;
+    }
+    .rotating-word span {
+      display: inline-block;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .rotating-word span.out {
+      opacity: 0;
+      transform: translateY(-12px);
+      position: absolute;
+      left: 0;
+    }
+    .rotating-word span.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .rotating-word span.waiting {
+      opacity: 0;
+      transform: translateY(12px);
+      position: absolute;
+      left: 0;
+    }
+    .desc {
+      color: var(--dim);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 0.6rem 1.3rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      transition: all 0.2s;
+    }
+    .email-link:hover {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+    }
+    .footer {
+      margin-top: 4rem;
+      font-size: 0.75rem;
+      color: var(--dim);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="logo-icon">
+      <svg width="30" height="30" viewBox="0 0 40 40">
+        <rect x="4"    y="17" width="4.5" height="8"  rx="1.5" fill="white" opacity="0.35"/>
+        <rect x="10.5" y="12" width="4.5" height="18" rx="1.5" fill="white" opacity="0.55"/>
+        <rect x="17"   y="7"  width="4.5" height="26" rx="1.5" fill="#4a7cec"/>
+        <rect x="23.5" y="10" width="4.5" height="20" rx="1.5" fill="white" opacity="0.65"/>
+        <rect x="30"   y="15" width="4.5" height="10" rx="1.5" fill="white" opacity="0.4"/>
+      </svg>
+    </div>
+    <h1>We make <em><span class="rotating-word"><span class="in">things.</span></span></em></h1>
+    <p class="desc">
+      A small studio, building away. More soon.
+    </p>
+    <a href="mailto:daniel@makethings.studio" class="email-link">
+      daniel@makethings.studio
+    </a>
+    <div class="footer">
+      &copy; 2025 Make Things Studio · Chicago, IL<br>
+      Founded by Daniel Dehaan
+    </div>
+  </div>
+  <script>
+    // Word rotation
+    const words = ['things.', 'sounds.', 'tools.', 'music.', 'code.', 'apps.', 'experiences.'];
+    const container = document.querySelector('.rotating-word');
+    let current = 0;
+    setInterval(() => {
+      const currentSpan = container.querySelector('.in');
+      const next = (current + 1) % words.length;
+      const nextSpan = document.createElement('span');
+      nextSpan.textContent = words[next];
+      nextSpan.className = 'waiting';
+      container.appendChild(nextSpan);
+      nextSpan.offsetHeight;
+      currentSpan.className = 'out';
+      nextSpan.className = 'in';
+      setTimeout(() => currentSpan.remove(), 400);
+      current = next;
+    }, 2200);
+  </script>
+</body>
+</html>
