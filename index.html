@@ -64,6 +64,7 @@
     .rotating-word {
       display: inline-block;
       position: relative;
+      transition: width 0.4s ease;
     }
     .rotating-word span {
       display: inline-block;
@@ -144,6 +145,8 @@
     const words = ['things.', 'sounds.', 'tools.', 'music.', 'code.', 'apps.', 'experiences.'];
     const container = document.querySelector('.rotating-word');
     let current = 0;
+    // Lock initial width so CSS transition can animate future changes
+    container.style.width = container.querySelector('.in').offsetWidth + 'px';
     setInterval(() => {
       const currentSpan = container.querySelector('.in');
       const next = (current + 1) % words.length;
@@ -154,6 +157,8 @@
       nextSpan.offsetHeight;
       currentSpan.className = 'out';
       nextSpan.className = 'in';
+      // Smoothly animate container width to match new word
+      container.style.width = nextSpan.offsetWidth + 'px';
       setTimeout(() => currentSpan.remove(), 400);
       current = next;
     }, 2200);
