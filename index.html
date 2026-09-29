@@ -108,6 +108,7 @@
       gap: 1.5rem;
       justify-content: center;
       align-items: baseline;
+      flex-wrap: wrap;
       margin-bottom: 2.5rem;
     }
     .project-link {
@@ -131,6 +132,11 @@
     .project-link.driftone .name {
       font-family: 'Fraunces', Georgia, serif;
       font-weight: 100;
+    }
+    .project-link.schedule .name {
+      font-family: var(--sans);
+      font-weight: 400;
+      letter-spacing: -0.01em;
     }
     .project-link .badge {
       font-family: var(--sans);
@@ -187,6 +193,9 @@
       </a>
       <a href="https://driftone.app" target="_blank" rel="noopener" class="project-link driftone">
         <span class="name">Driftone</span> <span class="badge">Soon</span>
+      </a>
+      <a href="/schedule-review/" class="project-link schedule">
+        <span class="name">Schedule Review</span>
       </a>
     </div>
     <a href="mailto:hi@makethings.studio" class="email-link">
