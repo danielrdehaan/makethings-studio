@@ -209,6 +209,17 @@ footer { border-top: 1px solid var(--line); padding-block: 1.5rem 2.5rem; displa
 .card .t { font-weight: 600; color: var(--head); }
 .card .m { color: var(--muted); }
 .card .btns { position: absolute; right: 12px; bottom: 12px; display: flex; gap: 6px; }
+/* agent stage */
+.ask { right: 12px; top: 44px; height: 34px; display: flex; align-items: center; padding: 0 13px; border-radius: 10px 10px 2px 10px; background: var(--primary); color: var(--on-primary); font-size: 12.5px; white-space: nowrap; }
+.caret { display: inline-block; width: 1.5px; height: 14px; margin-left: 1px; background: currentColor; vertical-align: -3px; }
+.who { left: 14px; top: 90px; font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.arow { left: 12px; width: 496px; height: 24px; display: flex; align-items: center; gap: 8px; padding: 0 2px; font-size: 12px; white-space: nowrap; }
+.arow::before { content: "›"; font: 600 12px var(--mono); color: var(--primary); }
+.pv { left: 12px; top: 240px; width: 496px; height: 48px; display: flex; align-items: center; gap: 6px; padding: 0 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-2); font-size: 11.5px; white-space: nowrap; }
+.pv .lb { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-right: 4px; }
+.fc { display: inline-flex; align-items: center; gap: 5px; font: 500 10.5px/1 var(--mono); padding: 5px 9px; border-radius: 99px; border: 1px solid var(--border); background: var(--card); color: var(--head); }
+.fc.on { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+.fc .tg { margin: 0; padding: 2px 5px; font-size: 9px; }
 body { margin: 0; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; }
 [hidden] { display: none !important; }
@@ -433,7 +444,36 @@ img { max-width: 100%; }
 
   <section class="section" id="built">
     <h2 class="h2">Built to be changed safely</h2>
-    <p class="intro">Your college's copy is configured, not rewritten. That is what lets someone on your staff who isn't a software specialist extend it with an AI coding agent without putting the schedule at risk.</p>
+    <div class="feature">
+      <div class="copy">
+        <span class="kicker">Customizing</span>
+        <h3 class="h2">Ask for what your college needs</h3>
+        <p>Your college's copy is configured, not rewritten. That is what lets someone on your staff who isn't a software specialist extend it with an AI coding agent without putting the schedule at risk.</p>
+        <ul class="list">
+          <li>Describe the change in plain words</li>
+          <li>The agent reads the project's rules before it touches anything</li>
+          <li>Checks and tests run before the change reaches you</li>
+          <li>Nothing goes live until you say so</li>
+        </ul>
+      </div>
+      <figure class="scene" id="sc-agent" aria-label="Animation: someone asks an AI coding agent for a filter showing sections with no room yet; the agent reads the project's rules, adds the filter and a test, runs the checks and tests, and the new filter is ready for review">
+        <div class="fit"><div class="stage" aria-hidden="true">
+          <div class="a hd">Your college's copy · AI coding agent <span class="chip">example</span></div>
+          <div class="a" data-k="all" style="left:0;top:0;width:520px;height:340px">
+            <div class="a ask" data-k="ask"></div>
+            <div class="a who" data-k="who">Agent</div>
+            <div class="a arow" data-k="r0" style="top:108px"><span>Read the rulebook: a room is never guessed</span><span class="tg" data-k="t0"></span></div>
+            <div class="a arow" data-k="r1" style="top:132px"><span>Added a “No room yet” filter to the review</span><span class="tg" data-k="t1"></span></div>
+            <div class="a arow" data-k="r2" style="top:156px"><span>Added a test for the new filter</span><span class="tg" data-k="t2"></span></div>
+            <div class="a arow" data-k="r3" style="top:180px"><span>Ran the checks: no problems found</span><span class="tg" data-k="t3"></span></div>
+            <div class="a arow" data-k="r4" style="top:204px"><span>Ran the tests: all passing</span><span class="tg" data-k="t4"></span></div>
+            <div class="a pv" data-k="pv"><span class="lb">Show</span><span class="fc">All 142</span><span class="fc">Clashes 3</span><span class="fc">Changed 14</span><span class="fc on" data-k="chip">No room yet 4 <span class="tg new">new</span></span></div>
+            <div class="a mbar" data-k="bar" style="top:298px;height:34px"><span><span class="dot-ok"></span> <b>Ready for your review.</b>&nbsp;Nothing goes live until you publish it.</span></div>
+          </div>
+        </div></div>
+        <button class="pause" type="button" aria-label="Pause animation"></button>
+      </figure>
+    </div>
     <div class="extras">
       <div class="extra"><h3>One configuration file</h3><p>What is your college's own lives in one place: its names and terms, the scheduler's spreadsheet columns and wording, rooms and buildings, pay and load rules. Your college's data loads as its own seed.</p></div>
       <div class="extra"><h3>A rulebook for AI agents</h3><p>The project carries the rules an AI coding agent reads before it changes anything: the ones that keep the review trustworthy, such as never guessing at data it cannot read, and auditing every change.</p></div>
@@ -610,6 +650,29 @@ img { max-width: 100%; }
       k.card.classList.toggle('acc', done);
       k.cbtns.style.display = done ? 'none' : '';
       k.cdone.style.display = done ? '' : 'none';
+    }
+  });
+  /* agent: a request in plain words; the agent reads the rules, makes the change and runs the checks */
+  var ASK = 'Add a filter for sections that don\u2019t have a room yet.';
+  var STEPS = [['', 'read'], ['new', 'edited'], ['new', 'edited'], ['ok', 'passed'], ['ok', 'passed']];
+  scene('sc-agent', {
+    w: 520, h: 340, duration: 14, still: 11,
+    render: function (t, k) {
+      k.all.style.opacity = 1 - prog(t, 13.2, 13.7);
+      var n = Math.round(ASK.length * prog(t, .4, 2.6));
+      var caret = t < 2.9 && (t < 2.6 || Math.floor(t * 2.5) % 2 === 0);
+      var html = ASK.slice(0, n) + (caret ? '<i class="caret"></i>' : '');
+      if (k.ask.innerHTML !== html) k.ask.innerHTML = html;
+      k.ask.style.opacity = t >= .2 ? 1 : 0;
+      k.who.style.opacity = prog(t, 2.9, 3.2);
+      STEPS.forEach(function (s, i) {
+        var at = 3.4 + i * .9, u = prog(t, at, at + .3), r = k['r' + i];
+        r.style.opacity = u; r.style.transform = 'translateY(' + (1 - u) * 6 + 'px)';
+        if (t >= at + .7) tag(k['t' + i], s[0], s[1]); else tag(k['t' + i], '', 'working\u2026');
+      });
+      var p = prog(t, 8.0, 8.4); k.pv.style.opacity = p; k.pv.style.transform = 'translateY(' + (1 - p) * 8 + 'px)';
+      var c = ease(prog(t, 8.5, 8.9)); k.chip.style.opacity = c; k.chip.style.transform = 'scale(' + (.7 + .3 * c) + ')';
+      var b = prog(t, 9.3, 9.6); k.bar.style.opacity = b; k.bar.style.transform = 'translateY(' + (1 - b) * 10 + 'px)';
     }
   });
 })();
