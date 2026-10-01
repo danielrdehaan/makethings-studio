@@ -220,6 +220,23 @@ footer { border-top: 1px solid var(--line); padding-block: 1.5rem 2.5rem; displa
 .fc { display: inline-flex; align-items: center; gap: 5px; font: 500 10.5px/1 var(--mono); padding: 5px 9px; border-radius: 99px; border: 1px solid var(--border); background: var(--card); color: var(--head); }
 .fc.on { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
 .fc .tg { margin: 0; padding: 2px 5px; font-size: 9px; }
+/* data section */
+.dz { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 0; align-items: stretch; margin-bottom: 2.5rem; }
+.dz-box { background: var(--card); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); padding: 1.1rem 1.25rem; min-width: 0; }
+.dz-box h3 { font-size: 1rem; margin-bottom: .2rem; }
+.dz-box .m { font-size: .86rem; color: var(--muted); margin-bottom: .7rem; }
+.dz-box ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.dz-box li { font: 500 .78rem/1 var(--mono); padding: .45rem .6rem; border-radius: 99px; background: var(--surface-2); color: var(--head); }
+.dz-box.data li { background: var(--primary-soft); color: var(--primary); }
+.dz-wall { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; padding: 0 1.25rem; min-width: 8rem; }
+.dz-wall span { font: 500 .72rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); text-align: center; }
+.dz-wall i { flex: 1; width: 0; border-left: 2px dashed var(--border); min-height: 1rem; }
+.extras + .sub { margin-top: 2.75rem; }
+@media (max-width: 900px) {
+  .dz { grid-template-columns: minmax(0, 1fr); }
+  .dz-wall { flex-direction: row; padding: .9rem 0; }
+  .dz-wall i { height: 0; width: auto; border-left: 0; border-top: 2px dashed var(--border); min-height: 0; }
+}
 body { margin: 0; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; }
 [hidden] { display: none !important; }
@@ -238,6 +255,7 @@ img { max-width: 100%; }
     <nav>
       <a href="#features">What it does</a>
       <a href="#how">How it works</a>
+      <a href="#data">Your data</a>
       <a class="btn ghost" href="#contact">Get in touch</a>
     </nav>
   </header>
@@ -478,6 +496,42 @@ img { max-width: 100%; }
       <div class="extra"><h3>One configuration file</h3><p>What is your college's own lives in one place: its names and terms, the scheduler's spreadsheet columns and wording, rooms and buildings, pay and load rules. Your college's data loads as its own seed.</p></div>
       <div class="extra"><h3>A rulebook for AI agents</h3><p>The project carries the rules an AI coding agent reads before it changes anything: the ones that keep the review trustworthy, such as never guessing at data it cannot read, and auditing every change.</p></div>
       <div class="extra"><h3>Checks and tests</h3><p>Automated checks fail the build when a rule is broken, and tests cover the rest. The agent follows the rules, and the checks catch it when it doesn't.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="data">
+    <h2 class="h2">Your data, and where AI fits</h2>
+    <p class="intro">Schedule Review is built for the questions your IT and security offices will ask. The short version: AI helps develop the software, never reads your schedule, and the rest is the kind of control a review of people's work needs.</p>
+
+    <div class="dz">
+      <div class="dz-box">
+        <h3>Where an AI coding agent works</h3>
+        <p class="m">The project's files, on a developer's computer</p>
+        <ul><li>code</li><li>configuration</li><li>the rulebook</li><li>tests, with made-up data</li></ul>
+      </div>
+      <div class="dz-wall" aria-hidden="true"><i></i><span>No access<br>needed</span><i></i></div>
+      <div class="dz-box data">
+        <h3>Where your data lives</h3>
+        <p class="m">Your college's own database, behind sign-in</p>
+        <ul><li>draft schedules</li><li>comments</li><li>approvals</li><li>instructor details</li><li>the audit log</li></ul>
+      </div>
+    </div>
+
+    <h3 class="h2 sub">AI</h3>
+    <div class="extras">
+      <div class="extra"><h4>It works on the software, not your data</h4><p>The agent changes code and configuration. Your drafts, comments and instructor details stay in your college's database, which it never needs access to. Tests run on made-up data, and your college's own data is kept apart from them.</p></div>
+      <div class="extra"><h4>No AI in the product</h4><p>Nothing your staff enter in Schedule Review is sent to an AI service. The running product doesn't call one, and your IT office can read the code to confirm it.</p></div>
+      <div class="extra"><h4>Your choice of agent, or none</h4><p>The rulebook is a plain text file, not tied to any vendor. Use the coding agent your IT office already approves, under the agreement your college already has, or an open-source model on your own machines. Or skip AI altogether: it's ordinary code a developer can maintain by hand.</p></div>
+    </div>
+
+    <h3 class="h2 sub">Security</h3>
+    <div class="extras">
+      <div class="extra"><h4>What it holds</h4><p>Sections, rooms, instructors, comments and approvals. It isn't designed to hold student records: enrollment figures are seat totals from your public course search, with no names. Instructor availability, status and pay estimates are shown only to administrators and schedule editors.</p></div>
+      <div class="extra"><h4>Who gets in</h4><p>Every page sits behind sign-in with your college's email address, and the review is open only to a group your administrators manage. A sign-in to the review lasts a day, and the review signs itself out after 30 minutes untouched. A password and authenticator app are available for a computer of one's own.</p></div>
+      <div class="extra"><h4>Every change on the record</h4><p>Who changed what, when, and the record before and after, in a log that cannot be edited and can be exported. Nothing on the page deletes a draft for good, and the scheduler's own file is never edited.</p></div>
+      <div class="extra"><h4>A person approves every change to the software</h4><p>Changes are reviewed before they go in, automated checks have to pass, and nothing reaches the live site until someone at your college publishes it. Every change is kept in the project's history.</p></div>
+      <div class="extra"><h4>Nothing sent on your behalf</h4><p>Messages to the scheduler are written on the page and sent from the reader's own email or Teams. Course data is read from your public course search as a guest, with nothing about any person requested.</p></div>
+      <div class="extra"><h4>Your college's own copy</h4><p>Your college runs its own copy, separate from every other college's. Where it runs is agreed with your IT office.</p></div>
     </div>
   </section>
 
