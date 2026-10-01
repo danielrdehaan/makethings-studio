@@ -80,6 +80,9 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border
 .lede { font-size: 1.12rem; max-width: 32rem; margin-bottom: 1.8rem; }
 .cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.1rem; }
 .small { font-size: .85rem; color: var(--muted); }
+.hero-how { list-style: none; margin: -.4rem 0 1.8rem; padding: 0; display: grid; gap: .55rem; max-width: 32rem; }
+.hero-how li { display: flex; gap: .75rem; align-items: baseline; color: var(--head); font-weight: 500; }
+.hero-how .step-n { flex: none; }
 
 /* frames */
 .frame { background: var(--card); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); padding: 1rem; min-width: 0; margin: 0; }
@@ -231,10 +234,15 @@ img { max-width: 100%; }
     <div>
       <span class="eyebrow">For chairs, programme directors, schedulers and deans</span>
       <h1>Approvals on the <span class="nw"><span class="hand">section</span>,</span> not just the schedule.</h1>
-      <p class="lede">Each term's draft goes to the faculty and staff who know it best. They flag clashes, propose changes and approve it section by section. You see the cost and teaching loads before it's final. Set up for your college, and run by your own people.</p>
+      <p class="lede">Each term's draft goes to the faculty and staff who know it best. They flag clashes, propose changes and approve it section by section. You see the cost and teaching loads before it's final.</p>
+      <ol class="hero-how" aria-label="How it works">
+        <li><span class="step-n">01</span><span>We set up your college's own copy</span></li>
+        <li><span class="step-n">02</span><span>We teach your people to run it, and to develop it with AI coding agents</span></li>
+        <li><span class="step-n">03</span><span>Your team takes it from there</span></li>
+      </ol>
       <div class="cta">
         <a class="btn primary" href="#contact">Get in touch</a>
-        <a class="btn ghost" href="#features">See what it does</a>
+        <a class="btn ghost" href="#how">See how it works</a>
       </div>
       <p class="small">In use at Columbia College Chicago's School of Audio and Music.</p>
     </div>
