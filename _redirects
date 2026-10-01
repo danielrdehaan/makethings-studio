@@ -1,0 +1,2 @@
+/schedule-review https://atlas-academic.app/schedule-review/ 301
+/schedule-review/* https://atlas-academic.app/schedule-review/:splat 301
