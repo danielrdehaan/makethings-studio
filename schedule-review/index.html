@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Schedule Review · Make Things Studio</title>
-<meta name="description" content="Schedule Review puts each term's draft schedule in front of the faculty and staff who know it best: they flag clashes, propose changes and approve it section by section, and administrators see cost and teaching loads before it's final.">
+<meta name="description" content="We set your college up with its own copy of Schedule Review, for your college alone: the tool that puts each term's draft schedule in front of the faculty and staff who know it best, and teach your own people to run it and keep developing it with AI coding agents.">
 <meta property="og:title" content="Schedule Review">
-<meta property="og:description" content="Approvals on the section, not just the schedule. A Make Things Studio project.">
+<meta property="og:description" content="Your own Schedule Review, set up for you, and your people taught to run it. A Make Things Studio project.">
 <meta property="og:url" content="https://makethings.studio/schedule-review/">
 <meta name="color-scheme" content="light dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,6 +95,11 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border
 .step h3 { margin-block: .55rem .3rem; font-size: 1.05rem; }
 .step p { font-size: .93rem; color: var(--muted); }
 .step-n { font: 500 .75rem var(--mono); color: var(--primary); letter-spacing: .06em; }
+.steps.three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.steps.three .step p { font-size: .97rem; color: var(--text); }
+.steps.three .step p + p { margin-top: .6rem; }
+.intro { font-size: 1.05rem; max-width: 44rem; margin-bottom: 2rem; }
+.sub { font-size: 1.2rem; margin-bottom: 1.2rem; }
 
 .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; padding-block: 2.25rem; }
 .feature.flip .copy { order: 2; }
@@ -106,7 +111,7 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border
 .list li::before { content: ""; position: absolute; left: 0; top: .5em; width: .55rem; height: .55rem; border-radius: 2px; background: var(--primary); }
 
 .extras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 2.5rem; }
-.extra h3 { margin-bottom: .3rem; font-size: 1rem; }
+.extra h3, .extra h4 { margin: 0 0 .3rem; font-size: 1rem; color: var(--head); }
 .extra p { font-size: .92rem; color: var(--muted); }
 
 .final { margin-block: 1rem 3rem; padding: clamp(2rem, 5vw, 3.5rem); background: var(--band); color: var(--on-band); border-radius: 12px; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 1.5rem 3rem; align-items: center; }
@@ -122,6 +127,7 @@ footer { border-top: 1px solid var(--line); padding-block: 1.5rem 2.5rem; displa
   .hero, .feature, .final { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .feature.flip .copy { order: 0; }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps.three { grid-template-columns: minmax(0, 1fr); }
   .extras { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 560px) {
@@ -215,19 +221,19 @@ img { max-width: 100%; }
       <a class="by" href="/">by makethings.studio</a>
     </div>
     <nav>
-      <a href="#features">Features</a>
       <a href="#how">How it works</a>
-      <a class="btn ghost" href="#contact">Request a walkthrough</a>
+      <a href="#features">What it does</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
     </nav>
   </header>
 
   <section class="hero" id="top">
     <div>
-      <span class="eyebrow">For deans, chairs and academic administrators</span>
-      <h1>Approvals on the <span class="nw"><span class="hand">section</span>,</span> not just the schedule.</h1>
-      <p class="lede">Each term's draft goes to the faculty and staff who know it best. They flag clashes, propose changes and approve it section by section. You see the cost and teaching loads before it's final.</p>
+      <span class="eyebrow">For chairs, programme directors, schedulers and deans</span>
+      <h1>We set it up. Your people <span class="nw"><span class="hand">run it</span>.</span></h1>
+      <p class="lede">We set your college up with its own copy of Schedule Review: its own site and its own database, for your college alone. Then we teach one or two of your people to run it and keep developing it with AI coding agents. You pay for the setup and the teaching, not a subscription.</p>
       <div class="cta">
-        <a class="btn primary" href="#contact">Request a walkthrough</a>
+        <a class="btn primary" href="#contact">Get in touch</a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
       <p class="small">In use at Columbia College Chicago's School of Audio and Music.</p>
@@ -260,20 +266,41 @@ img { max-width: 100%; }
   </section>
 
   <section class="section" id="how">
-    <h2 class="h2 center">One draft, start to finish</h2>
+    <h2 class="h2">How it works</h2>
+    <p class="intro">The service is the setup and the teaching. Once both are done, Schedule Review is your college's to run, and your own people can shape it.</p>
+    <ol class="steps three">
+      <li class="step">
+        <span class="step-n">01</span><h3>Setup</h3>
+        <p>We set up your college's own copy. We connect it to your course catalogue, enter your degrees, and configure it to your scheduler's own spreadsheet, your rooms and buildings, and your pay and load rules.</p>
+        <p>It works with the course search many colleges already have, starting with Ellucian Colleague Self-Service; other systems are a conversation. Where it runs is agreed with your IT office, and we train the people who will look after it.</p>
+      </li>
+      <li class="step">
+        <span class="step-n">02</span><h3>Teaching</h3>
+        <p>We teach a named person or two at your college to manage it, and to develop it further with AI coding agents, using the rulebook and checks it comes with.</p>
+        <p>The point is that your college is not dependent on us.</p>
+      </li>
+      <li class="step">
+        <span class="step-n">03</span><h3>Your team takes it from there</h3>
+        <p>Your people run each term's review and change what your college needs changed.</p>
+        <p>If you want us nearby, an optional retainer keeps your copy up to date and gets you a hand when something needs one.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section" id="features">
+    <h2 class="h2">What it does</h2>
+    <p class="intro">Each term's draft goes to the faculty and staff who know it best. They flag clashes, propose changes and approve it section by section, and administrators see the cost and teaching loads before it's final.</p>
     <ol class="steps">
       <li class="step"><span class="step-n">01</span><h3>Upload the draft</h3><p>The scheduler's spreadsheet, as it is. Nothing is retyped.</p></li>
       <li class="step"><span class="step-n">02</span><h3>Everyone reviews</h3><p>Faculty and staff filter to their sections, comment and tag colleagues.</p></li>
       <li class="step"><span class="step-n">03</span><h3>Propose and decide</h3><p>Anyone can propose a change. Editors accept or reject it.</p></li>
       <li class="step"><span class="step-n">04</span><h3>Back to the scheduler</h3><p>Decisions go to the scheduler as one message. Their file is never edited.</p></li>
     </ol>
-  </section>
 
-  <section class="section" id="features">
     <div class="feature">
       <div class="copy">
         <span class="kicker">Checks</span>
-        <h2 class="h2">Catch clashes before students enrol</h2>
+        <h3 class="h2">Catch clashes before students enrol</h3>
         <p>Every section, and every proposed change, is checked against the rest of the draft.</p>
         <ul class="list">
           <li>Rooms and instructors booked twice</li>
@@ -298,7 +325,7 @@ img { max-width: 100%; }
     <div class="feature flip">
       <div class="copy">
         <span class="kicker">Versions</span>
-        <h2 class="h2">See what changed, every round</h2>
+        <h3 class="h2">See what changed, every round</h3>
         <p>Each new version is compared section by section, and comments and approvals carry over.</p>
         <ul class="list">
           <li>New, changed and dropped sections at a glance</li>
@@ -324,7 +351,7 @@ img { max-width: 100%; }
     <div class="feature">
       <div class="copy">
         <span class="kicker">Cost &amp; loads</span>
-        <h2 class="h2">Know the cost while it can still change</h2>
+        <h3 class="h2">Know the cost while it can still change</h3>
         <p>Part-time pay from your faculty agreement's rates, and full-time loads across the year, counted from the draft itself.</p>
         <ul class="list">
           <li>Exact where credits taught are known, a range where not</li>
@@ -351,28 +378,67 @@ img { max-width: 100%; }
         <button class="pause" type="button" aria-label="Pause animation"></button>
       </figure>
     </div>
+
+    <h3 class="h2 center sub">And the details that make a term run smoothly</h3>
+    <div class="extras">
+      <div class="extra"><h4>Comments and mentions</h4><p>Comment on any section and @-mention a colleague to bring them in.</p></div>
+      <div class="extra"><h4>Course demand</h4><p>Last year's enrolment and this year's feeder courses, beside the seats offered.</p></div>
+      <div class="extra"><h4>Missing courses</h4><p>Required courses with no section are listed, and anyone can flag one.</p></div>
+      <div class="extra"><h4>Drag to try a move</h4><p>Move a class on the week and see the checks before proposing it.</p></div>
+      <div class="extra"><h4>The scheduler's own grid</h4><p>Download any version as the room grid your scheduler already uses.</p></div>
+      <div class="extra"><h4>The message to the scheduler</h4><p>Proposals, issues and comments written up as one message, sent by email or Teams from your own account.</p></div>
+      <div class="extra"><h4>A full audit trail</h4><p>Every change records who, when, and what it was before and after. The log can't be edited.</p></div>
+      <div class="extra"><h4>Beside your degree maps</h4><p>Maps of each degree's prerequisites sit alongside, so a timetable can be read against them.</p></div>
+      <div class="extra"><h4>Your sign-in</h4><p>Only people with your college's email addresses can sign in, and only the people you choose see the internal side.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="built">
+    <h2 class="h2">Built to be changed safely</h2>
+    <p class="intro">Your college's copy is configured, not rewritten. That is what lets someone on your staff who isn't a software specialist extend it with an AI coding agent without putting the schedule at risk.</p>
+    <div class="extras">
+      <div class="extra"><h3>One configuration file</h3><p>What is your college's own lives in one place: its names and terms, the scheduler's spreadsheet columns and wording, rooms and buildings, pay and load rules. Your college's data loads as its own seed.</p></div>
+      <div class="extra"><h3>A rulebook for AI agents</h3><p>The project carries the rules an AI coding agent reads before it changes anything: the ones that keep the review trustworthy, such as never guessing at data it cannot read, and auditing every change.</p></div>
+      <div class="extra"><h3>Checks and tests</h3><p>Automated checks fail the build when a rule is broken, and tests cover the rest. The agent follows the rules, and the checks catch it when it doesn't.</p></div>
+    </div>
   </section>
 
   <section class="section">
-    <h2 class="h2 center">And the details that make a term run smoothly</h2>
-    <div class="extras">
-      <div class="extra"><h3>Course demand</h3><p>Last year's enrolment and this year's feeder courses, beside the seats offered.</p></div>
-      <div class="extra"><h3>Missing courses</h3><p>Required courses with no section are listed, and anyone can flag one.</p></div>
-      <div class="extra"><h3>Drag to try a move</h3><p>Move a class on the week and see the checks before proposing it.</p></div>
-      <div class="extra"><h3>The scheduler's own grid</h3><p>Download any version as the room grid your scheduler already uses.</p></div>
-      <div class="extra"><h3>A full audit trail</h3><p>Every change records who, when, and what it was before.</p></div>
-      <div class="extra"><h3>Your sign-in</h3><p>Institutional accounts, with separate roles for reviewers and editors.</p></div>
+    <div class="feature" style="align-items: start">
+      <div class="copy">
+        <span class="kicker">Your copy</span>
+        <h2 class="h2">Your copy, for your college alone</h2>
+        <p>Your college's copy has its own site and its own database, never shared with another college. Where it runs is agreed with your IT office.</p>
+        <ul class="list">
+          <li>Only your people can sign in</li>
+          <li>Every change is in a log that can't be edited</li>
+          <li>Your data is never used for anyone else's copy</li>
+          <li>No subscription to keep paying</li>
+          <li>Fits how you already work: the scheduler's own spreadsheet, and messages sent by email or Teams from your own accounts. The page sends nothing itself</li>
+          <li>Your own staff decide what it does next</li>
+          <li>Nothing to buy from a large vendor</li>
+        </ul>
+      </div>
+      <div class="copy">
+        <span class="kicker">Who it's for</span>
+        <h2 class="h2">Academic units and smaller colleges</h2>
+        <p>For chairs, programme directors, schedulers and deans who want a better review of the schedule but can't justify an enterprise purchase.</p>
+        <ul class="list">
+          <li>It needs someone at your college willing to own it: to learn it, look after it each term and decide what changes</li>
+          <li>They don't need to be a developer. They do need the time, and the go-ahead to make it theirs</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="final" id="contact">
     <div>
-      <h2>Bring Schedule Review to your college</h2>
-      <p>Schedule Review is a makethings.studio project, running the School of Audio and Music's schedule at Columbia College Chicago today. Get in touch and we'll walk your team through a live draft.</p>
+      <h2>Set up Schedule Review at your college</h2>
+      <p>Schedule Review is a makethings.studio project, running the School of Audio and Music's schedule at Columbia College Chicago today. Tell us how your college schedules now and who would look after it, and we'll walk you through a live draft and put together a quote for the setup and teaching.</p>
     </div>
     <div>
       <div class="cta">
-        <a class="btn primary" href="mailto:hi@makethings.studio?subject=Schedule%20Review%20for%20my%20institution">Request a walkthrough</a>
+        <a class="btn primary" href="mailto:hi@makethings.studio?subject=Setting%20up%20Schedule%20Review%20at%20my%20college">Get in touch</a>
       </div>
       <p class="small">or write to <span class="addr">hi@makethings.studio</span></p>
     </div>
